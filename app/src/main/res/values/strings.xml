@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">RickyAndMortyApp</string>
+    <string name="app_name">RickAndMorty</string>
+    <string name="loading_text">One moment, please…</string>
+    <string name="generic_error_message">Ups, something went wrong…</string>
 </resources>

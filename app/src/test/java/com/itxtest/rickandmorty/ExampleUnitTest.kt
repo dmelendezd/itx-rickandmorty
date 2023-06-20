@@ -1,4 +1,4 @@
-package com.itxtest.rickyandmortyapp
+package com.itxtest.rickandmorty
 
 import org.junit.Test
 
