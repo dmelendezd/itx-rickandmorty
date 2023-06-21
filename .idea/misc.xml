@@ -9,7 +9,7 @@
         <entry key="app/src/main/res/font/adamina.xml" value="0.2935185185185185" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26458333333333334" />
         <entry key="app/src/main/res/layout/character_item.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/fragment_characters_list_landing.xml" value="0.1296875" />
+        <entry key="app/src/main/res/layout/fragment_characters_list_landing.xml" value="0.25" />
       </map>
     </option>
   </component>

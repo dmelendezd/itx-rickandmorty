@@ -40,4 +40,12 @@ data class Character(
     fun isAlive(): Boolean = status == ALIVE
 
     fun isDead(): Boolean = status == DEAD
+
+    override fun equals(other: Any?): Boolean {
+        return if (other is Character) other.id == id else false
+    }
+
+    override fun hashCode(): Int {
+        return id.hashCode()
+    }
 }

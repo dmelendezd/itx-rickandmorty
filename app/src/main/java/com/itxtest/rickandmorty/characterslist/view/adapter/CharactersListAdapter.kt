@@ -10,7 +10,7 @@ import com.itxtest.rickandmorty.platform.app.ApplicationClass
 import com.itxtest.rickandmorty.platform.extension.setBackgroundColorResource
 
 class CharactersListAdapter(
-    private val characters: List<Character>
+    private val characters: MutableList<Character>
 ) : RecyclerView.Adapter<CharactersListAdapter.CharacterViewHolder>() {
 
     companion object {
@@ -25,6 +25,20 @@ class CharactersListAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
         return CharacterViewHolder(CharacterItemBinding.inflate(ApplicationClass.currentActivity.layoutInflater))
+    }
+
+    fun add(characters: List<Character>) {
+        val firstPositionToAdd = itemCount
+        var addedCount = 0
+        characters.forEach {
+            if (!this.characters.contains(it)) {
+                this.characters.add(it)
+                addedCount ++
+            }
+        }
+        if (addedCount > 0) {
+            notifyItemRangeInserted(firstPositionToAdd, addedCount)
+        }
     }
 
     class CharacterViewHolder(
