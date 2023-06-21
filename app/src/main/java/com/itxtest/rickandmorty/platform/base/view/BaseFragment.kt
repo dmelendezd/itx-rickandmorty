@@ -1,7 +1,7 @@
 package com.itxtest.rickandmorty.platform.base.view
 
 import androidx.fragment.app.Fragment
-import com.itxtest.rickandmorty.main.MainActivity
+import com.itxtest.rickandmorty.main.view.MainActivity
 
 open class BaseFragment : Fragment(), BaseView {
 

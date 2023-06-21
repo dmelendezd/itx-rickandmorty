@@ -2,7 +2,7 @@ package com.itxtest.rickandmorty.business.model.error
 
 import android.util.Log
 import com.itxtest.rickandmorty.platform.app.ApplicationClass
-import com.itxtest.rickandmorty.main.MainActivity
+import com.itxtest.rickandmorty.main.view.MainActivity
 
 class ErrorHandler private constructor() {
 
