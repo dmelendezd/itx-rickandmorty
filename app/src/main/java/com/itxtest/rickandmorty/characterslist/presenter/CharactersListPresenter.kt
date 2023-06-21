@@ -16,6 +16,10 @@ class CharactersListPresenter(private val view: CharactersListView) : BasePresen
         loadCharacters()
     }
 
+    fun onViewMoreCharactersClicked() {
+        loadCharacters()
+    }
+
     private fun loadCharacters() {
         CharactersService(getNextCharacterIds()).subscribe(object : RequestObserver<List<Character>>() {
             override fun onSuccess(response: List<Character>) {

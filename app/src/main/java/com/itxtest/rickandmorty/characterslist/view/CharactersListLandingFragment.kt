@@ -9,6 +9,7 @@ import com.itxtest.rickandmorty.characterslist.presenter.CharactersListPresenter
 import com.itxtest.rickandmorty.characterslist.view.adapter.CharactersListAdapter
 import com.itxtest.rickandmorty.databinding.FragmentCharactersListLandingBinding
 import com.itxtest.rickandmorty.platform.base.view.BaseFragment
+import com.itxtest.rickandmorty.platform.util.ViewAnimationUtils
 
 class CharactersListLandingFragment : CharactersListView, BaseFragment() {
 
@@ -42,8 +43,26 @@ class CharactersListLandingFragment : CharactersListView, BaseFragment() {
     }
 
     private fun initView() {
-        adapter = CharactersListAdapter(arrayListOf())
+        initList()
+        initViewMoreButton()
+    }
+
+    private fun initList() {
+        adapter = CharactersListAdapter(arrayListOf()) { lastItemVisible ->
+            if (lastItemVisible) {
+                ViewAnimationUtils.showWithFade(binding.viewMore)
+            } else {
+                ViewAnimationUtils.hideWithFade(binding.viewMore)
+            }
+        }
         binding.chacractersList.adapter = adapter
+    }
+
+    private fun initViewMoreButton() {
+        binding.viewMore.setOnClickListener {
+            ViewAnimationUtils.hideWithFade(binding.viewMore)
+            presenter.onViewMoreCharactersClicked()
+        }
     }
 
     override fun addCharacters(characters: List<Character>) {

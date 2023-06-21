@@ -11,7 +11,8 @@ import com.itxtest.rickandmorty.platform.extension.setBackgroundColorResource
 import com.itxtest.rickandmorty.platform.extension.setMargins
 
 class CharactersListAdapter(
-    private val characters: MutableList<Character>
+    private val characters: MutableList<Character>,
+    private val onLastItemVisibilityChangedCallback: ((Boolean) -> Unit)? = null
 ) : RecyclerView.Adapter<CharactersListAdapter.CharacterViewHolder>() {
 
     companion object {
@@ -21,10 +22,17 @@ class CharactersListAdapter(
     override fun getItemCount(): Int = characters.size
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
+        if (characters.indexOf(holder.bindedModel) == characters.lastIndex) {
+            onLastItemVisibilityChangedCallback?.invoke(false)
+        }
         holder.bind(characters[position])
         val itemSeparation =
             holder.itemBinding.root.context.resources.getDimension(R.dimen.characters_list_item_separation).toInt()
         holder.itemBinding.root.setMargins(itemSeparation, 0, 0, 0)
+
+        if (position == characters.lastIndex) {
+            onLastItemVisibilityChangedCallback?.invoke(true)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
@@ -51,7 +59,7 @@ class CharactersListAdapter(
          val itemBinding: CharacterItemBinding
     ) : RecyclerView.ViewHolder(itemBinding.root) {
 
-        private lateinit var bindedModel: Character
+        var bindedModel: Character? = null
 
         fun bind(character: Character) {
             bindedModel = character
@@ -62,29 +70,31 @@ class CharactersListAdapter(
         }
 
         private fun updateName() {
-            itemBinding.name.text = bindedModel.name
+            itemBinding.name.text = bindedModel?.name
         }
 
         private fun updateStatusSpecies() {
-            val speciesStatusText = "${bindedModel.status} $STATUS_SEPARATOR ${bindedModel.species}"
-            itemBinding.speciesStatus.text = speciesStatusText
+            bindedModel?.let { bindedModel ->
+                val speciesStatusText = "${bindedModel.status} $STATUS_SEPARATOR ${bindedModel.species}"
+                itemBinding.speciesStatus.text = speciesStatusText
 
-            itemBinding.statusIndicator.setBackgroundColorResource(
-                when {
-                    bindedModel.isAlive() -> R.color.green
-                    bindedModel.isDead() -> R.color.red
-                    else -> R.color.dark_grey
-                }
-            )
+                itemBinding.statusIndicator.setBackgroundColorResource(
+                    when {
+                        bindedModel.isAlive() -> R.color.green
+                        bindedModel.isDead() -> R.color.red
+                        else -> R.color.dark_grey
+                    }
+                )
+            }
         }
 
         private fun updateLocations() {
-            itemBinding.lastKnowLocation.text = bindedModel.lastKnownLocation.name
-            itemBinding.origin.text = bindedModel.origin.name
+            itemBinding.lastKnowLocation.text = bindedModel?.lastKnownLocation?.name
+            itemBinding.origin.text = bindedModel?.origin?.name
         }
 
         private fun loadImage() {
-            Glide.with(itemBinding.root.context).load(bindedModel.image).into(itemBinding.image)
+            Glide.with(itemBinding.root.context).load(bindedModel?.image).into(itemBinding.image)
         }
     }
 }
