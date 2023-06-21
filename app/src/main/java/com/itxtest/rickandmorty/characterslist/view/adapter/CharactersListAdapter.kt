@@ -8,6 +8,7 @@ import com.itxtest.rickandmorty.business.model.domain.Character
 import com.itxtest.rickandmorty.databinding.CharacterItemBinding
 import com.itxtest.rickandmorty.platform.app.ApplicationClass
 import com.itxtest.rickandmorty.platform.extension.setBackgroundColorResource
+import com.itxtest.rickandmorty.platform.extension.setMargins
 
 class CharactersListAdapter(
     private val characters: MutableList<Character>
@@ -21,10 +22,15 @@ class CharactersListAdapter(
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
         holder.bind(characters[position])
+        val itemSeparation =
+            holder.itemBinding.root.context.resources.getDimension(R.dimen.characters_list_item_separation).toInt()
+        holder.itemBinding.root.setMargins(itemSeparation, 0, 0, 0)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
-        return CharacterViewHolder(CharacterItemBinding.inflate(ApplicationClass.currentActivity.layoutInflater))
+        return CharacterViewHolder(
+            CharacterItemBinding.inflate(ApplicationClass.currentActivity.layoutInflater, parent, false)
+        )
     }
 
     fun add(characters: List<Character>) {
@@ -42,7 +48,7 @@ class CharactersListAdapter(
     }
 
     class CharacterViewHolder(
-        private val itemBinding: CharacterItemBinding
+         val itemBinding: CharacterItemBinding
     ) : RecyclerView.ViewHolder(itemBinding.root) {
 
         private lateinit var bindedModel: Character

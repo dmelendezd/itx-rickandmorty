@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import com.itxtest.rickandmorty.business.model.domain.Character
 import com.itxtest.rickandmorty.characterslist.presenter.CharactersListPresenter
 import com.itxtest.rickandmorty.characterslist.view.adapter.CharactersListAdapter
-import com.itxtest.rickandmorty.platform.base.view.BaseFragment
 import com.itxtest.rickandmorty.databinding.FragmentCharactersListLandingBinding
+import com.itxtest.rickandmorty.platform.base.view.BaseFragment
 
 class CharactersListLandingFragment : CharactersListView, BaseFragment() {
 
