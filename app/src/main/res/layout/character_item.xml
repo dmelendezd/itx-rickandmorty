@@ -76,19 +76,19 @@
         tools:text="unknown" />
 
     <TextView
-        android:id="@+id/firstSeenInTitle"
+        android:id="@+id/originTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:layout_marginStart="12dp"
-        android:text="@string/first_seen_in"
+        android:text="@string/origin"
         android:textColor="@color/grey"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/image"
         app:layout_constraintTop_toBottomOf="@id/lastKnowLocation" />
 
     <TextView
-        android:id="@+id/firstSeenIn"
+        android:id="@+id/origin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
@@ -98,6 +98,6 @@
         android:layout_marginHorizontal="12dp"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@id/image"
-        app:layout_constraintTop_toBottomOf="@id/firstSeenInTitle"
-        tools:text="Vindicator 3: The Return of Worldender" />
+        app:layout_constraintTop_toBottomOf="@id/originTitle"
+        tools:text="Earth (Pizza Dimension)" />
 </androidx.constraintlayout.widget.ConstraintLayout>

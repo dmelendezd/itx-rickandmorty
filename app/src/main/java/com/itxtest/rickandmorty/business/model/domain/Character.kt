@@ -31,4 +31,13 @@ data class Character(
     val url: String,
     @SerializedName("created")
     val created: String
-)
+) {
+    companion object {
+        private const val ALIVE = "Alive"
+        private const val DEAD = "Dead"
+    }
+
+    fun isAlive(): Boolean = status == ALIVE
+
+    fun isDead(): Boolean = status == DEAD
+}
