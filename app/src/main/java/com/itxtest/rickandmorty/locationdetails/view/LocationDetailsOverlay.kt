@@ -58,7 +58,9 @@ class LocationDetailsOverlay : BaseOverlay(), LocationDetailsView {
     }
 
     private fun initResidentsList(residents: List<Character>) {
-        val adapter = SimpleCharactersAdapter(residents)
+        val adapter = SimpleCharactersAdapter(residents) {
+            presenter.onOtherCharacterClicked(it)
+        }
         val layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         binding.residentsList.layoutManager = layoutManager

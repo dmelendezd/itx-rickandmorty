@@ -62,7 +62,9 @@ class CharacterDetailsOverlay : BaseOverlay(), CharacterDetailsView {
     }
 
     override fun showEpisodeCharacters(characters: List<Character>) {
-        val adapter = SimpleCharactersAdapter(characters)
+        val adapter = SimpleCharactersAdapter(characters) {
+            presenter.onOtherCharacterClicked(it)
+        }
         val layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         binding.charactersList.layoutManager = layoutManager

@@ -5,6 +5,7 @@ import com.itxtest.rickandmorty.business.model.domain.Episode
 import com.itxtest.rickandmorty.business.model.service.base.RequestObserver
 import com.itxtest.rickandmorty.business.model.service.character.CharactersService
 import com.itxtest.rickandmorty.business.model.service.episode.EpisodesService
+import com.itxtest.rickandmorty.characterdetails.view.CharacterDetailsOverlay
 import com.itxtest.rickandmorty.characterdetails.view.CharacterDetailsView
 import com.itxtest.rickandmorty.locationdetails.util.ResourceUrlUtil
 import com.itxtest.rickandmorty.platform.base.presenter.BasePresenter
@@ -16,6 +17,10 @@ class CharacterDetailsPresenter(private val view: CharacterDetailsView) : BasePr
         view.showCharacterName(character.name)
         view.showBackgroundImage(character.image)
         loadFirstSeenEpisode(character)
+    }
+
+    fun onOtherCharacterClicked(character: Character) {
+        CharacterDetailsOverlay.newInstance(character).show()
     }
 
     private fun loadFirstSeenEpisode(character: Character) {

@@ -5,6 +5,7 @@ import com.itxtest.rickandmorty.business.model.domain.Character
 import com.itxtest.rickandmorty.business.model.service.base.RequestObserver
 import com.itxtest.rickandmorty.business.model.service.character.CharactersService
 import com.itxtest.rickandmorty.business.model.service.location.LocationsService
+import com.itxtest.rickandmorty.characterdetails.view.CharacterDetailsOverlay
 import com.itxtest.rickandmorty.locationdetails.util.ResourceUrlUtil
 import com.itxtest.rickandmorty.locationdetails.view.LocationDetailsView
 import com.itxtest.rickandmorty.platform.base.presenter.BasePresenter
@@ -16,6 +17,10 @@ class LocationDetailsPresenter(private val view: LocationDetailsView) : BasePres
         if (locationUrl.isNotEmpty()) {
             getLocationData(ResourceUrlUtil.getIdFromUrl(locationUrl))
         }
+    }
+
+    fun onOtherCharacterClicked(character: Character) {
+        CharacterDetailsOverlay.newInstance(character).show()
     }
 
     private fun getLocationData(locationId: Int) {

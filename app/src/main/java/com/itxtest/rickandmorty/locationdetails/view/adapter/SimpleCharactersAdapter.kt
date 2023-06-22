@@ -10,7 +10,8 @@ import com.itxtest.rickandmorty.databinding.SimpleCharacterItemBinding
 import com.itxtest.rickandmorty.platform.extension.setMargins
 
 class SimpleCharactersAdapter(
-    private val residents: List<Character>
+    private val residents: List<Character>,
+    private val onCharacterClickCallback: (Character) -> Unit
 ) : RecyclerView.Adapter<SimpleCharactersAdapter.ResidentViewHolder>() {
 
     override fun getItemCount(): Int = residents.size
@@ -20,6 +21,7 @@ class SimpleCharactersAdapter(
         val itemSeparation =
             holder.itemBinding.imageContainer.context.resources.getDimension(R.dimen.residents_list_item_separation).toInt()
         holder.itemBinding.imageContainer.setMargins(0, 0, 0, itemSeparation)
+        holder.itemBinding.root.setOnClickListener { onCharacterClickCallback(residents[position]) }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResidentViewHolder {
