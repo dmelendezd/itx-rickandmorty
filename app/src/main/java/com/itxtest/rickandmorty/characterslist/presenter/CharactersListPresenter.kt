@@ -4,6 +4,7 @@ import com.itxtest.rickandmorty.business.model.domain.Character
 import com.itxtest.rickandmorty.business.model.domain.Location
 import com.itxtest.rickandmorty.business.model.service.base.RequestObserver
 import com.itxtest.rickandmorty.business.model.service.character.CharactersService
+import com.itxtest.rickandmorty.characterdetails.view.CharacterDetailsOverlay
 import com.itxtest.rickandmorty.characterslist.constant.CharactersListConstants
 import com.itxtest.rickandmorty.characterslist.view.CharactersListView
 import com.itxtest.rickandmorty.locationdetails.view.LocationDetailsOverlay
@@ -28,6 +29,10 @@ class CharactersListPresenter(private val view: CharactersListView) : BasePresen
 
     fun onCharacterOriginClicked(location: Location) {
         showLocationOverlay(location)
+    }
+
+    fun onCharacterNameClicked(character: Character) {
+        CharacterDetailsOverlay.newInstance(character).show()
     }
 
     private fun loadCharacters() {

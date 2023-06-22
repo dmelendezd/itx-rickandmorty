@@ -6,12 +6,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.itxtest.rickandmorty.R
 import com.itxtest.rickandmorty.business.model.domain.Character
 import com.itxtest.rickandmorty.business.model.util.ImageLoadUtil
-import com.itxtest.rickandmorty.databinding.ResidentItemBinding
+import com.itxtest.rickandmorty.databinding.SimpleCharacterItemBinding
 import com.itxtest.rickandmorty.platform.extension.setMargins
 
-class LocationResidentsAdapter(
+class SimpleCharactersAdapter(
     private val residents: List<Character>
-) : RecyclerView.Adapter<LocationResidentsAdapter.ResidentViewHolder>() {
+) : RecyclerView.Adapter<SimpleCharactersAdapter.ResidentViewHolder>() {
 
     override fun getItemCount(): Int = residents.size
 
@@ -24,11 +24,11 @@ class LocationResidentsAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResidentViewHolder {
         return ResidentViewHolder(
-            ResidentItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            SimpleCharacterItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 
-    class ResidentViewHolder(val itemBinding: ResidentItemBinding) : RecyclerView.ViewHolder(itemBinding.root) {
+    class ResidentViewHolder(val itemBinding: SimpleCharacterItemBinding) : RecyclerView.ViewHolder(itemBinding.root) {
 
         fun bind(resident: Character) {
             itemBinding.name.text = resident.name

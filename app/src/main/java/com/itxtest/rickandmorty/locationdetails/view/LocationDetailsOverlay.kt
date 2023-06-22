@@ -9,7 +9,7 @@ import com.itxtest.rickandmorty.business.model.domain.Character
 import com.itxtest.rickandmorty.business.model.domain.Location
 import com.itxtest.rickandmorty.databinding.LocationDetailsFragmentBinding
 import com.itxtest.rickandmorty.locationdetails.presenter.LocationDetailsPresenter
-import com.itxtest.rickandmorty.locationdetails.view.adapter.LocationResidentsAdapter
+import com.itxtest.rickandmorty.locationdetails.view.adapter.SimpleCharactersAdapter
 import com.itxtest.rickandmorty.platform.base.view.BaseOverlay
 
 class LocationDetailsOverlay : BaseOverlay(), LocationDetailsView {
@@ -58,7 +58,7 @@ class LocationDetailsOverlay : BaseOverlay(), LocationDetailsView {
     }
 
     private fun initResidentsList(residents: List<Character>) {
-        val adapter = LocationResidentsAdapter(residents)
+        val adapter = SimpleCharactersAdapter(residents)
         val layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         binding.residentsList.layoutManager = layoutManager

@@ -40,6 +40,9 @@ class CharactersListAdapter(
         holder.itemBinding.origin.setOnClickListener {
             adapterModel.onOriginClickCallback?.invoke(character.origin)
         }
+        holder.itemBinding.root.setOnClickListener {
+            adapterModel.onCharacterNameClickCallback?.invoke(character)
+        }
 
         if (position == characters.lastIndex) {
             adapterModel.onLastItemVisibilityChangedCallback?.invoke(true)
@@ -113,6 +116,7 @@ class CharactersListAdapter(
         val characters: MutableList<Character>,
         val onLastItemVisibilityChangedCallback: ((Boolean) -> Unit)? = null,
         val onLastKnownLocationClickCallback: ((Location) -> Unit)? = null,
-        val onOriginClickCallback: ((Location) -> Unit)? = null
+        val onOriginClickCallback: ((Location) -> Unit)? = null,
+        val onCharacterNameClickCallback: ((Character) -> Unit)? = null
     )
 }

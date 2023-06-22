@@ -4,9 +4,12 @@
     <string name="generic_error_message">Ups, something went wrong…</string>
     <string name="last_known_location">Last known location:</string>
     <string name="origin">Origin:</string>
-    <string name="first_seen_in">First seen in:</string>
+    <string name="first_seen_in">First seen in</string>
     <string name="dimension">Dimension:</string>
     <string name="type">Type:</string>
     <string name="view_more">View more</string>
     <string name="residents">Residents</string>
+    <string name="episode">Episode:</string>
+    <string name="air_date">Air date:</string>
+    <string name="episode_characters">Other characters in this episode</string>
 </resources>

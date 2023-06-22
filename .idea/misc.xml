@@ -11,10 +11,12 @@
         <entry key="app/src/main/res/font/adamina.xml" value="0.2935185185185185" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26458333333333334" />
         <entry key="app/src/main/res/layout/base_overlay.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/character_details_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/character_item.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_characters_list_landing.xml" value="0.25" />
         <entry key="app/src/main/res/layout/loading_view.xml" value="0.19701086956521738" />
         <entry key="app/src/main/res/layout/location_details_fragment.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/resident_item.xml" value="0.375" />
       </map>
     </option>
   </component>

@@ -74,7 +74,8 @@ class CharactersListLandingFragment : CharactersListView, BaseFragment() {
                 }
             },
             onLastKnownLocationClickCallback = { presenter.onCharacterLastKnowLocationClicked(it) },
-            onOriginClickCallback = { presenter.onCharacterOriginClicked(it) }
+            onOriginClickCallback = { presenter.onCharacterOriginClicked(it) },
+            onCharacterNameClickCallback = { presenter.onCharacterNameClicked(it) }
         )
     }
 }

@@ -7,8 +7,17 @@
     android:background="@android:color/transparent"
     tools:background="@color/rick_and_morty_purple">
 
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:alpha="0.05"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/locationName"
+        android:id="@+id/characterName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -20,78 +29,95 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Name of location" />
+        tools:text="Name of character" />
 
     <TextView
-        android:id="@+id/locationTypeTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/type"
-        android:textColor="@color/grey"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/locationName" />
-
-    <TextView
-        android:id="@+id/locationType"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="12dp"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/locationTypeTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/locationTypeTitle"
-        app:layout_constraintTop_toTopOf="@id/locationTypeTitle"
-        tools:text="TV" />
-
-    <TextView
-        android:id="@+id/dimensionTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="6dp"
-        android:text="@string/dimension"
-        android:textColor="@color/grey"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/locationTypeTitle" />
-
-    <TextView
-        android:id="@+id/dimension"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="12dp"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/dimensionTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/dimensionTitle"
-        app:layout_constraintTop_toTopOf="@id/dimensionTitle"
-        tools:text="unknown" />
-
-    <TextView
-        android:id="@+id/residentsTitle"
+        android:id="@+id/firstSeenInTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/residents"
+        android:layout_marginTop="16dp"
+        android:text="@string/first_seen_in"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         app:fontFamily="@font/alatsi"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dimension" />
+        app:layout_constraintTop_toBottomOf="@id/characterName" />
+
+    <TextView
+        android:id="@+id/episodeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/episode"
+        android:textColor="@color/grey"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/firstSeenInTitle" />
+
+    <TextView
+        android:id="@+id/episode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/episodeTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/episodeTitle"
+        app:layout_constraintTop_toTopOf="@id/episodeTitle"
+        tools:text="Rixty Minutes (S01E08)" />
+
+    <TextView
+        android:id="@+id/airDateTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/air_date"
+        android:textColor="@color/grey"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/episodeTitle" />
+
+    <TextView
+        android:id="@+id/airDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/airDateTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/airDateTitle"
+        app:layout_constraintTop_toTopOf="@id/airDateTitle"
+        tools:text="March 17, 2014" />
+
+    <TextView
+        android:id="@+id/charactersTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/episode_characters"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/airDate" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/residentsList"
+        android:id="@+id/charactersList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/residentsTitle" />
+        app:layout_constraintTop_toBottomOf="@id/charactersTitle" />
 </androidx.constraintlayout.widget.ConstraintLayout>
