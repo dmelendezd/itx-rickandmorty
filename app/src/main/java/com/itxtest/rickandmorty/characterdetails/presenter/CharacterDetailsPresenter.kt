@@ -15,7 +15,7 @@ class CharacterDetailsPresenter(private val view: CharacterDetailsView) : BasePr
     override fun onViewInitialized() {
         val character = view.getCharacter()
         view.showCharacterName(character.name)
-        view.showBackgroundImage(character.image)
+        view.showCharacterImage(character.image)
         loadFirstSeenEpisode(character)
     }
 

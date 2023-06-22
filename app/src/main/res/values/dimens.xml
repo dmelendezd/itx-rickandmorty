@@ -6,4 +6,5 @@
     <dimen name="characters_list_item_separation">16dp</dimen>
     <dimen name="resident_image_width_height">85dp</dimen>
     <dimen name="residents_list_item_separation">16dp</dimen>
+    <dimen name="character_details_image_width_height">50dp</dimen>
 </resources>

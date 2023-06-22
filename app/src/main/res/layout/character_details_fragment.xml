@@ -16,19 +16,35 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imageContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/characterImage"
+            android:layout_width="@dimen/character_details_image_width_height"
+            android:layout_height="@dimen/character_details_image_width_height" />
+    </androidx.cardview.widget.CardView>
+
     <TextView
         android:id="@+id/characterName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
         app:fontFamily="@font/alatsi"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageContainer"
+        app:layout_constraintTop_toTopOf="@id/imageContainer"
+        app:layout_constraintBottom_toBottomOf="@id/imageContainer"
         tools:text="Name of character" />
 
     <TextView
@@ -36,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:text="@string/first_seen_in"
         android:textColor="@color/white"
         android:textSize="18sp"
@@ -107,7 +123,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/episode_characters"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/airDate" />
@@ -115,9 +131,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/charactersList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/charactersTitle" />
 </androidx.constraintlayout.widget.ConstraintLayout>

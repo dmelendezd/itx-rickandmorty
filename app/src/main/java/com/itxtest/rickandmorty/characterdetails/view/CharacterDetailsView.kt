@@ -8,5 +8,5 @@ interface CharacterDetailsView {
     fun showEpisodeName(episodeName: String)
     fun showEpisodeAirDate(airDate: String)
     fun showEpisodeCharacters(characters: List<Character>)
-    fun showBackgroundImage(imageUrl: String)
+    fun showCharacterImage(imageUrl: String)
 }

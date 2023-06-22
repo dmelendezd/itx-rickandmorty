@@ -49,8 +49,9 @@ class CharacterDetailsOverlay : BaseOverlay(), CharacterDetailsView {
         binding.characterName.text = characterName
     }
 
-    override fun showBackgroundImage(imageUrl: String) {
+    override fun showCharacterImage(imageUrl: String) {
         ImageLoadUtil.load(imageUrl, binding.backgroundImage)
+        ImageLoadUtil.load(imageUrl, binding.characterImage)
     }
 
     override fun showEpisodeName(episodeName: String) {
