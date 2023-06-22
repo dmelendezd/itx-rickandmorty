@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.itxtest.rickandmorty.business.model.navigation.NavigationManager
 import com.itxtest.rickandmorty.platform.app.ApplicationClass
-import com.itxtest.rickandmorty.platform.extension.gone
 import com.itxtest.rickandmorty.platform.extension.visible
 import com.itxtest.rickandmorty.databinding.ActivityMainBinding
 import com.itxtest.rickandmorty.main.presenter.MainLauncherPresenter
@@ -25,14 +24,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showLoading() {
-        binding.loadingLayout.visible()
+        binding.loadingView.show()
     }
 
     fun hideLoading() {
-        binding.loadingLayout.gone()
+        binding.loadingView.hide()
     }
 
     fun showErrorOverlay() {
-        binding.loadingLayout.visible()
+        binding.errorLayout.visible()
     }
 }

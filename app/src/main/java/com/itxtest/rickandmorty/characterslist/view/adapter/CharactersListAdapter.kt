@@ -2,36 +2,47 @@ package com.itxtest.rickandmorty.characterslist.view.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.itxtest.rickandmorty.R
 import com.itxtest.rickandmorty.business.model.domain.Character
+import com.itxtest.rickandmorty.business.model.domain.Location
+import com.itxtest.rickandmorty.business.model.util.ImageLoadUtil
 import com.itxtest.rickandmorty.databinding.CharacterItemBinding
 import com.itxtest.rickandmorty.platform.app.ApplicationClass
 import com.itxtest.rickandmorty.platform.extension.setBackgroundColorResource
 import com.itxtest.rickandmorty.platform.extension.setMargins
 
 class CharactersListAdapter(
-    private val characters: MutableList<Character>,
-    private val onLastItemVisibilityChangedCallback: ((Boolean) -> Unit)? = null
+    private val adapterModel: CharactersAdapterModel
 ) : RecyclerView.Adapter<CharactersListAdapter.CharacterViewHolder>() {
 
     companion object {
         private const val STATUS_SEPARATOR = "-"
     }
 
+    private val characters get() = adapterModel.characters
+
     override fun getItemCount(): Int = characters.size
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
         if (characters.indexOf(holder.bindedModel) == characters.lastIndex) {
-            onLastItemVisibilityChangedCallback?.invoke(false)
+            adapterModel.onLastItemVisibilityChangedCallback?.invoke(false)
         }
-        holder.bind(characters[position])
+
+        val character = characters[position]
+        holder.bind(character)
         val itemSeparation =
             holder.itemBinding.root.context.resources.getDimension(R.dimen.characters_list_item_separation).toInt()
         holder.itemBinding.root.setMargins(itemSeparation, 0, 0, 0)
 
+        holder.itemBinding.lastKnowLocation.setOnClickListener {
+            adapterModel.onLastKnownLocationClickCallback?.invoke(character.lastKnownLocation)
+        }
+        holder.itemBinding.origin.setOnClickListener {
+            adapterModel.onOriginClickCallback?.invoke(character.origin)
+        }
+
         if (position == characters.lastIndex) {
-            onLastItemVisibilityChangedCallback?.invoke(true)
+            adapterModel.onLastItemVisibilityChangedCallback?.invoke(true)
         }
     }
 
@@ -94,7 +105,14 @@ class CharactersListAdapter(
         }
 
         private fun loadImage() {
-            Glide.with(itemBinding.root.context).load(bindedModel?.image).into(itemBinding.image)
+            bindedModel?.image?.let { ImageLoadUtil.load(it, itemBinding.image) }
         }
     }
+
+    data class CharactersAdapterModel(
+        val characters: MutableList<Character>,
+        val onLastItemVisibilityChangedCallback: ((Boolean) -> Unit)? = null,
+        val onLastKnownLocationClickCallback: ((Location) -> Unit)? = null,
+        val onOriginClickCallback: ((Location) -> Unit)? = null
+    )
 }

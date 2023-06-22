@@ -4,4 +4,6 @@
     <dimen name="character_image_width_height">170dp</dimen>
     <dimen name="character_status_indicator_width_height">12dp</dimen>
     <dimen name="characters_list_item_separation">16dp</dimen>
+    <dimen name="resident_image_width_height">85dp</dimen>
+    <dimen name="residents_list_item_separation">16dp</dimen>
 </resources>

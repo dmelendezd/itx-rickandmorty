@@ -5,12 +5,16 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/base_circle_background.xml" value="0.1585" />
         <entry key="app/src/main/res/drawable/base_circle_background.xml" value="0.12" />
+        <entry key="app/src/main/res/drawable/base_overlay_background.xml" value="0.151" />
         <entry key="app/src/main/res/drawable/base_rounded_background.xml" value="0.1785" />
         <entry key="app/src/main/res/drawable/characters_list_item_decoration.xml" value="0.186" />
         <entry key="app/src/main/res/font/adamina.xml" value="0.2935185185185185" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26458333333333334" />
+        <entry key="app/src/main/res/layout/base_overlay.xml" value="0.25" />
         <entry key="app/src/main/res/layout/character_item.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_characters_list_landing.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/loading_view.xml" value="0.19701086956521738" />
+        <entry key="app/src/main/res/layout/location_details_fragment.xml" value="0.335" />
       </map>
     </option>
   </component>

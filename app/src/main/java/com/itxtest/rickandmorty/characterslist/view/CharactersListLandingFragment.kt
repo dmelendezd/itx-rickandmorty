@@ -48,13 +48,7 @@ class CharactersListLandingFragment : CharactersListView, BaseFragment() {
     }
 
     private fun initList() {
-        adapter = CharactersListAdapter(arrayListOf()) { lastItemVisible ->
-            if (lastItemVisible) {
-                ViewAnimationUtils.showWithFade(binding.viewMore)
-            } else {
-                ViewAnimationUtils.hideWithFade(binding.viewMore)
-            }
-        }
+        adapter = CharactersListAdapter(getCharactersAdapterModel())
         binding.chacractersList.adapter = adapter
     }
 
@@ -67,5 +61,20 @@ class CharactersListLandingFragment : CharactersListView, BaseFragment() {
 
     override fun addCharacters(characters: List<Character>) {
         adapter.add(characters)
+    }
+
+    private fun getCharactersAdapterModel(): CharactersListAdapter.CharactersAdapterModel {
+        return CharactersListAdapter.CharactersAdapterModel(
+            characters = arrayListOf(),
+            onLastItemVisibilityChangedCallback = { lastItemVisible ->
+                if (lastItemVisible) {
+                    ViewAnimationUtils.showWithFade(binding.viewMore)
+                } else {
+                    ViewAnimationUtils.hideWithFade(binding.viewMore)
+                }
+            },
+            onLastKnownLocationClickCallback = { presenter.onCharacterLastKnowLocationClicked(it) },
+            onOriginClickCallback = { presenter.onCharacterOriginClicked(it) }
+        )
     }
 }

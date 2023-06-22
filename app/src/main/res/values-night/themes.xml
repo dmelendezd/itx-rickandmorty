@@ -1,10 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Theme.RickyAndMortyApp" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Primary brand color. -->
         <item name="colorPrimary">@color/rick_and_morty_purple</item>
         <item name="colorPrimaryDark">@color/rick_and_morty_purple_dark</item>
         <item name="colorAccent">@color/rick_and_morty_blue</item>
-        <!-- Customize your theme here. -->
+
+        <!-- Overlay -->
+        <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialogTheme</item>
+    </style>
+
+    <!-- Overlay styles -->
+    <style name="CustomBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomModalStyle</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+    <style name="CustomModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
     </style>
 </resources>
