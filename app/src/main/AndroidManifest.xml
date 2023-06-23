@@ -16,7 +16,7 @@
         android:theme="@style/Theme.RickyAndMortyApp"
         tools:targetApi="31">
         <activity
-            android:name="com.itxtest.rickandmorty.main.view.MainActivity"
+            android:name="com.itxtest.rickandmorty.view.main.view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
