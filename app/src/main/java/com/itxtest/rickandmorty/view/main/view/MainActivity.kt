@@ -1,7 +1,10 @@
 package com.itxtest.rickandmorty.view.main.view
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.itxtest.rickandmorty.R
 import com.itxtest.rickandmorty.view.navigation.NavigationManager
 import com.itxtest.rickandmorty.view.platform.app.ApplicationClass
 import com.itxtest.rickandmorty.view.platform.extension.visible
@@ -21,6 +24,18 @@ class MainActivity : AppCompatActivity() {
         presenter = MainLauncherPresenter()
         setContentView(binding.root)
         presenter.onViewInitialized()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_item_help) {
+            presenter.onHelpClicked()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     fun showLoading() {

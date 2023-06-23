@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/base_rounded_background"
+    android:backgroundTint="@color/rick_and_morty_blue"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="16dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alatsi"
+        android:text="@string/help_title"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/help_character_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:drawableStart="@drawable/ic_baseline_list_dot_24"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/alatsi"
+        android:text="@string/help_character_details"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <TextView
+        android:id="@+id/help_locations_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:drawableStart="@drawable/ic_baseline_list_dot_24"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/alatsi"
+        android:text="@string/help_location_details"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/help_character_details"
+        app:layout_constraintStart_toStartOf="@id/help_character_details"
+        app:layout_constraintTop_toBottomOf="@id/help_character_details" />
+
+    <TextView
+        android:id="@+id/help_view_more_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:drawableStart="@drawable/ic_baseline_list_dot_24"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/alatsi"
+        android:text="@string/help_view_more_details"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/help_character_details"
+        app:layout_constraintStart_toStartOf="@id/help_character_details"
+        app:layout_constraintTop_toBottomOf="@id/help_locations_details" />
+
+    <TextView
+        android:id="@+id/help_list_appearance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:drawableStart="@drawable/ic_baseline_list_dot_24"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/alatsi"
+        android:text="@string/help_list_appearance"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/help_character_details"
+        app:layout_constraintStart_toStartOf="@id/help_character_details"
+        app:layout_constraintTop_toBottomOf="@id/help_view_more_details" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/okAction"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/base_rounded_background"
+        android:backgroundTint="@color/white"
+        android:text="@string/help_ok_button_text"
+        android:textColor="@color/rick_and_morty_purple"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/help_list_appearance" />
+</androidx.constraintlayout.widget.ConstraintLayout>

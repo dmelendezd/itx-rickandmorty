@@ -14,10 +14,12 @@
         <entry key="app/src/main/res/layout/character_details_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/character_item.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_characters_list_landing.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/help_dialog.xml" value="0.335" />
         <entry key="app/src/main/res/layout/loading_view.xml" value="0.19701086956521738" />
         <entry key="app/src/main/res/layout/location_details_fragment.xml" value="0.335" />
         <entry key="app/src/main/res/layout/resident_item.xml" value="0.375" />
         <entry key="app/src/main/res/layout/simple_character_item.xml" value="0.19701086956521738" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.1" />
       </map>
     </option>
   </component>
