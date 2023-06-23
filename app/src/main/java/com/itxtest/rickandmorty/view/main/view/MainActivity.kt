@@ -35,6 +35,9 @@ class MainActivity : AppCompatActivity() {
         if (item.itemId == R.id.menu_item_help) {
             presenter.onHelpClicked()
         }
+        if (item.itemId == R.id.menu_item_list_appearance) {
+            presenter.onChangeListAppearanceClicked()
+        }
         return super.onOptionsItemSelected(item)
     }
 

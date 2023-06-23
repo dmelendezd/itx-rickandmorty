@@ -23,6 +23,7 @@ class CharactersListAdapter(
     }
 
     private val characters get() = adapterModel.characters
+    private var alternateSideEnabled = false
 
     override fun getItemCount(): Int = characters.size
 
@@ -38,8 +39,10 @@ class CharactersListAdapter(
         val itemSeparation = resources.getDimension(R.dimen.characters_list_item_separation).toInt()
         holder.itemBinding.root.setMargins(itemSeparation, 0, 0, 0)
 
-        if (resources.getBoolean(R.bool.characters_list_alternate_side_enabled)) {
+        if (alternateSideEnabled) {
             updateImageSide(holder.itemBinding, position)
+        } else {
+            updateImageSide(holder.itemBinding, 0)
         }
 
         holder.itemBinding.lastKnowLocation.setOnClickListener {
@@ -75,6 +78,11 @@ class CharactersListAdapter(
         if (addedCount > 0) {
             notifyItemRangeInserted(firstPositionToAdd, addedCount)
         }
+    }
+
+    fun setAlternateSideEnabled(enabled: Boolean) {
+        alternateSideEnabled = enabled
+        notifyItemRangeChanged(0, itemCount)
     }
 
     private fun updateImageSide(itemBinding: CharacterItemBinding, position: Int) {

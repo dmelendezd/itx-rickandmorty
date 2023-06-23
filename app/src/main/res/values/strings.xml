@@ -22,6 +22,6 @@
     <string name="help_character_details">You can see any character details by clicking on it.</string>
     <string name="help_location_details">To see location details (last known location or origin) please click on its name.</string>
     <string name="help_view_more_details">When you fully scroll down the list, a "View more" button will appear to allow you to load more characters.</string>
-    <string name="help_list_appearance">It is possible to change the list alignment by editing the bools.xml</string>
+    <string name="help_list_appearance">It is possible to change the list appearance by click the proper menu option.</string>
     <string name="help_ok_button_text">OK</string>
 </resources>

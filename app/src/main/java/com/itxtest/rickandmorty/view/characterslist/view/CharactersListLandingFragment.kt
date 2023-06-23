@@ -8,6 +8,7 @@ import com.itxtest.rickandmorty.model.domain.Character
 import com.itxtest.rickandmorty.view.characterslist.presenter.CharactersListPresenter
 import com.itxtest.rickandmorty.view.characterslist.view.adapter.CharactersListAdapter
 import com.itxtest.rickandmorty.databinding.FragmentCharactersListLandingBinding
+import com.itxtest.rickandmorty.view.platform.app.ApplicationClass
 import com.itxtest.rickandmorty.view.platform.base.view.BaseFragment
 import com.itxtest.rickandmorty.view.platform.util.ViewAnimationUtils
 
@@ -45,6 +46,7 @@ class CharactersListLandingFragment : CharactersListView, BaseFragment() {
     private fun initView() {
         initList()
         initViewMoreButton()
+        observe()
     }
 
     private fun initList() {
@@ -56,6 +58,12 @@ class CharactersListLandingFragment : CharactersListView, BaseFragment() {
         binding.viewMore.setOnClickListener {
             ViewAnimationUtils.hideWithFade(binding.viewMore)
             presenter.onViewMoreCharactersClicked()
+        }
+    }
+
+    private fun observe() {
+        ApplicationClass.listAppearanceAlternate.observe(requireActivity()) {
+            adapter.setAlternateSideEnabled(it)
         }
     }
 
