@@ -35,6 +35,7 @@ class CharacterDetailsOverlay : BaseOverlay(), CharacterDetailsView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
         presenter.onViewInitialized()
     }
 
@@ -70,6 +71,14 @@ class CharacterDetailsOverlay : BaseOverlay(), CharacterDetailsView {
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         binding.charactersList.layoutManager = layoutManager
         binding.charactersList.adapter = adapter
+    }
+
+    override fun close() {
+        dismiss()
+    }
+
+    private fun initView() {
+        binding.close.setOnClickListener { presenter.onCloseClicked() }
     }
 
     companion object {

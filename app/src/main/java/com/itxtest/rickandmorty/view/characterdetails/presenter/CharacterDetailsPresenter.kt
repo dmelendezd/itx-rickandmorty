@@ -23,6 +23,10 @@ class CharacterDetailsPresenter(private val view: CharacterDetailsView) : BasePr
         CharacterDetailsOverlay.newInstance(character).show()
     }
 
+    fun onCloseClicked() {
+        view.close()
+    }
+
     private fun loadFirstSeenEpisode(character: Character) {
         if (character.episode.isNotEmpty()) {
             val firstSeenEpisodeId = ResourceUrlUtil.getIdFromUrl(character.episode[0])

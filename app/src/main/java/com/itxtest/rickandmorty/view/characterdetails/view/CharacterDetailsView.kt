@@ -9,4 +9,5 @@ interface CharacterDetailsView {
     fun showEpisodeAirDate(airDate: String)
     fun showEpisodeCharacters(characters: List<Character>)
     fun showCharacterImage(imageUrl: String)
+    fun close()
 }
